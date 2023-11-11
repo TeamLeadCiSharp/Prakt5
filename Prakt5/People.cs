@@ -8,33 +8,35 @@ using System.Xml.Serialization;
 
 namespace Prakt5
 {
-    public class Student : IComparable
+    public class People
     {
-        public string FullName { get; set; }
-        public int Course { get; set; }
-        public string Group { get; set; }
-        public double RunningResult { get; set; }
+        public List<Person> people = new List<Person>();
+        XmlSerializer serializer = new XmlSerializer(typeof(List<Person>));
 
-        public Student()
+        public void Add(Person person)
         {
-            this.FullName = "Петро";
-            var r = new Random();
-            this.Group = "IP-22";
-            this.RunningResult = r.Next(30, 300);
+            people.Add(person);
         }
-
-        public Student(string fullName, int course, string group, double runningResult)
+        public void Remove(int i)
         {
-            FullName = fullName;
-            Course = course;
-            Group = group;
-            RunningResult = runningResult;
+            people.RemoveAt(i);
         }
-
-        public int CompareTo(object obj)
+        public void Sort()
         {
-            Student otherStudent = obj as Student;
-            return RunningResult.CompareTo(otherStudent.RunningResult);
+            SortByAge sortByAge = new SortByAge();
+            people.Sort(sortByAge);
+        }
+        public void WriteFile(string fileName)
+        {
+            FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
+            serializer.Serialize(fileStream, people);
+            fileStream.Close();
+        }
+        public void ReadFile(string fileName)
+        {
+            FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
+            people = serializer.Deserialize(fileStream) as List<Person>;
+            fileStream.Close();
         }
     }
 }

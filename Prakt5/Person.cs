@@ -8,48 +8,49 @@ using System.Xml.Serialization;
 
 namespace Prakt5
 {
-    public class People
+    public class Person : IComparable
     {
-        public List<Student> students = new List<Student>();
-        XmlSerializer serializer = new XmlSerializer(typeof(List<Student>));
-
-        public void Add(Student student)
+        int age;
+        string name;
+        double weight;
+        public Person()
         {
-            students.Add(student);
+            this.name = "Петро";
+            var r = new Random();
+            this.age = r.Next(10, 300);
+            this.weight = r.Next(30, 300);
         }
-
-        public void Remove(int i)
+        public Person(string name, int age, double weight)
         {
-            students.RemoveAt(i);
+            this.age = age;
+            this.name = name;
+            this.weight = weight;
         }
-
-        public void SortByRunningResult()
+        public string Name { get { return this.name; } set { this.name = value; } }
+        public int Age
         {
-            SortByRunningResult sortByRunningResult = new SortByRunningResult();
-            students.Sort(sortByRunningResult);
+            get { return this.age; }
+            set
+            {
+                if (value > 0)
+                    this.age = value;
+                else throw new Exception("Age<=0");
+            }
         }
-
-        public List<Student> GetTopThreeRunners()
+        public double Weight
         {
-            SortByRunningResult();
-            int topCount = Math.Min(3, students.Count);
-            List<Student> topRunners = students.GetRange(0, topCount);
-
-            return topRunners;
+            get { return this.weight; }
+            set
+            {
+                if (value > 0)
+                    this.weight = value;
+                else throw new Exception("Weight<=0");
+            }
         }
-
-        public void WriteFile(string fileName)
+        public int CompareTo(object obj)
         {
-            FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
-            serializer.Serialize(fileStream, students);
-            fileStream.Close();
-        }
-
-        public void ReadFile(string fileName)
-        {
-            FileStream fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read);
-            students = serializer.Deserialize(fileStream) as List<Student>;
-            fileStream.Close();
+            Person p = obj as Person;
+            return weight.CompareTo(p.weight);
         }
     }
 }
