@@ -50,14 +50,19 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.NamePers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Група = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -76,22 +81,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 47);
+            this.label2.Location = new System.Drawing.Point(11, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(25, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Ім\'я";
+            this.label2.Text = "ПІБ";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(44, 44);
+            this.textBox1.Location = new System.Drawing.Point(103, 26);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 2;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(44, 70);
+            this.textBox2.Location = new System.Drawing.Point(103, 55);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 4;
@@ -99,15 +104,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 73);
+            this.label3.Location = new System.Drawing.Point(11, 55);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(22, 13);
+            this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Вік";
+            this.label3.Text = "Курс";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(44, 96);
+            this.textBox3.Location = new System.Drawing.Point(103, 117);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 6;
@@ -115,15 +120,15 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 99);
+            this.label4.Location = new System.Drawing.Point(11, 120);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.Size = new System.Drawing.Size(92, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Вага";
+            this.label4.Text = "Результат забігу";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(54, 134);
+            this.button1.Location = new System.Drawing.Point(70, 155);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -147,18 +152,18 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 9;
-            this.label6.Text = "Вага";
+            this.label6.Text = "Курс";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(44, 208);
+            this.textBox4.Location = new System.Drawing.Point(57, 205);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 10;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(54, 251);
+            this.button2.Location = new System.Drawing.Point(57, 243);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 11;
@@ -172,6 +177,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NamePers,
             this.Age,
+            this.Група,
             this.Weight});
             this.dataGridView1.Location = new System.Drawing.Point(12, 286);
             this.dataGridView1.Name = "dataGridView1";
@@ -234,6 +240,7 @@
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column5,
+            this.Column1,
             this.Column6});
             this.dataGridView2.Location = new System.Drawing.Point(297, 26);
             this.dataGridView2.Name = "dataGridView2";
@@ -246,6 +253,7 @@
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
             this.Column8,
+            this.Column2,
             this.Column9});
             this.dataGridView3.Location = new System.Drawing.Point(553, 25);
             this.dataGridView3.Name = "dataGridView3";
@@ -271,49 +279,80 @@
             this.label8.TabIndex = 25;
             this.label8.Text = "Відсортована інформація";
             // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(103, 88);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 27;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 91);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(36, 13);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Група";
+            // 
             // NamePers
             // 
-            this.NamePers.HeaderText = "Name Person";
+            this.NamePers.HeaderText = "ПІБ";
             this.NamePers.Name = "NamePers";
             // 
             // Age
             // 
-            this.Age.HeaderText = "Age";
+            this.Age.HeaderText = "Курс";
             this.Age.Name = "Age";
+            // 
+            // Група
+            // 
+            this.Група.HeaderText = "Група";
+            this.Група.Name = "Група";
             // 
             // Weight
             // 
-            this.Weight.HeaderText = "Weight";
+            this.Weight.HeaderText = "Забіг";
             this.Weight.Name = "Weight";
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Name";
+            this.Column4.HeaderText = "ПІБ";
             this.Column4.Name = "Column4";
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "Age";
+            this.Column5.HeaderText = "Курс";
             this.Column5.Name = "Column5";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Група";
+            this.Column1.Name = "Column1";
             // 
             // Column6
             // 
-            this.Column6.HeaderText = "Weight";
+            this.Column6.HeaderText = "Забіг";
             this.Column6.Name = "Column6";
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Name";
+            this.Column7.HeaderText = "ПІБ";
             this.Column7.Name = "Column7";
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "Age";
+            this.Column8.HeaderText = "Курс";
             this.Column8.Name = "Column8";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Група";
+            this.Column2.Name = "Column2";
             // 
             // Column9
             // 
-            this.Column9.HeaderText = "Weight";
+            this.Column9.HeaderText = "Забіг";
             this.Column9.Name = "Column9";
             // 
             // Form1
@@ -321,6 +360,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 621);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dataGridView3);
@@ -377,14 +418,19 @@
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn NamePers;
         private System.Windows.Forms.DataGridViewTextBoxColumn Age;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Група;
         private System.Windows.Forms.DataGridViewTextBoxColumn Weight;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }

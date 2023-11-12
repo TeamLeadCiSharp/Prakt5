@@ -8,49 +8,60 @@ using System.Xml.Serialization;
 
 namespace Prakt5
 {
-    public class Person : IComparable
+    public class Student : IComparable
     {
-        int age;
-        string name;
-        double weight;
-        public Person()
+        string fullName;
+        int course;
+        string group;
+        double runningResult;
+
+        public Student()
         {
-            this.name = "Петро";
+            this.fullName = "Іванов Іван Іванович";
             var r = new Random();
-            this.age = r.Next(10, 300);
-            this.weight = r.Next(30, 300);
+            this.course = r.Next(1, 6);
+            this.group = "Група " + r.Next(1, 10);
+            this.runningResult = r.NextDouble() * 100; 
         }
-        public Person(string name, int age, double weight)
+
+        public Student(string fullName, int course, string group, double runningResult)
         {
-            this.age = age;
-            this.name = name;
-            this.weight = weight;
+            this.fullName = fullName;
+            this.course = course;
+            this.group = group;
+            this.runningResult = runningResult;
         }
-        public string Name { get { return this.name; } set { this.name = value; } }
-        public int Age
+
+        public string FullName { get { return this.fullName; } set { this.fullName = value; } }
+
+        public int Course
         {
-            get { return this.age; }
+            get { return this.course; }
             set
             {
-                if (value > 0)
-                    this.age = value;
-                else throw new Exception("Age<=0");
+                if (value > 0 && value <= 6)
+                    this.course = value;
+                else throw new Exception("Invalid course");
             }
         }
-        public double Weight
+
+        public string Group { get { return this.group; } set { this.group = value; } }
+
+        public double RunningResult
         {
-            get { return this.weight; }
+            get { return this.runningResult; }
             set
             {
-                if (value > 0)
-                    this.weight = value;
-                else throw new Exception("Weight<=0");
+                if (value >= 0)
+                    this.runningResult = value;
+                else throw new Exception("Invalid running result");
             }
         }
+
         public int CompareTo(object obj)
         {
-            Person p = obj as Person;
-            return weight.CompareTo(p.weight);
+            Student s = obj as Student;
+            return runningResult.CompareTo(s.runningResult);
         }
     }
 }

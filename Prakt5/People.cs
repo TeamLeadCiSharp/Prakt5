@@ -8,35 +8,52 @@ using System.Xml.Serialization;
 
 namespace Prakt5
 {
-    public class People
-    {
-        public List<Person> people = new List<Person>();
-        XmlSerializer serializer = new XmlSerializer(typeof(List<Person>));
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Xml.Serialization;
 
-        public void Add(Person person)
+    public class Students
+    {
+        public List<Student> students = new List<Student>();
+        XmlSerializer serializer = new XmlSerializer(typeof(List<Student>));
+
+        public void Add(Student student)
         {
-            people.Add(person);
+            students.Add(student);
         }
+
         public void Remove(int i)
         {
-            people.RemoveAt(i);
+            students.RemoveAt(i);
         }
+
         public void Sort()
         {
-            SortByAge sortByAge = new SortByAge();
-            people.Sort(sortByAge);
+            SortByRunningResult sortByRunningResult = new SortByRunningResult();
+            students.Sort(sortByRunningResult);
         }
+
         public void WriteFile(string fileName)
         {
-            FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
-            serializer.Serialize(fileStream, people);
-            fileStream.Close();
+            using (FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                serializer.Serialize(fileStream, students);
+            }
         }
+
         public void ReadFile(string fileName)
         {
-            FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
-            people = serializer.Deserialize(fileStream) as List<Person>;
-            fileStream.Close();
+            using (FileStream fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None))
+            {
+                students = serializer.Deserialize(fileStream) as List<Student>;
+            }
+        }
+
+        public List<Student> GetTopPerformers()
+        {
+            Sort();
+            return students.GetRange(0, Math.Min(3, students.Count));
         }
     }
 }

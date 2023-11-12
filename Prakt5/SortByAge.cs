@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Prakt5
 {
-    internal class SortByAge : IComparer<Person>
+    internal class SortByRunningResult : IComparer<Student>
     {
-        public int Compare(Person x, Person y)
+        public int Compare(Student x, Student y)
         {
-            if (x.Age < y.Age) return -1;
-            if (x.Age > y.Age) return 1;
-            return 0;
+            return y.RunningResult.CompareTo(x.RunningResult);
         }
     }
 }
